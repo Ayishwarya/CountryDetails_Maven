@@ -6,14 +6,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
+
 public class CountryDaoImpl implements CountryDAO {
-    private Country country;
     private Connection conn;
     private List<Country> countries = new ArrayList<Country>();
 
-    public CountryDaoImpl(List<Country> countries, Country country, Connection conn1) {
-        this.country = country;
-        this.conn = conn1;
+    public CountryDaoImpl() throws Exception {
+        Class.forName("org.postgresql.Driver");
+        conn = getConnection("jdbc:postgresql://localhost:5432/country",
+                "postgres", "@Yishwarya2510");
     }
 
     @Override
@@ -22,6 +24,7 @@ public class CountryDaoImpl implements CountryDAO {
         String s = "SELECT * FROM country";
         ResultSet rs = statement.executeQuery(s);
         while (rs.next()) {
+            Country country = new Country();
             country.setName(rs.getString("Name"));
             country.setPopulation(rs.getDouble("Population"));
             country.setNational_Language(rs.getString("National_Language"));
@@ -29,7 +32,7 @@ public class CountryDaoImpl implements CountryDAO {
             country.setEconomic_Drivers(rs.getString("Economic_Drivers"));
             country.setCurrency(rs.getString("Currency"));
             country.setExchange_Rate(rs.getDouble("Exchange_Rate"));
-            country.setPlaces_To_Visit(rs.getString("Places"));
+            country.setPlaces_To_Visit(rs.getString("Places_To_Visit"));
             country.setClimatic_Conditions(rs.getString("Climatic_Conditions"));
             countries.add(country);
         }

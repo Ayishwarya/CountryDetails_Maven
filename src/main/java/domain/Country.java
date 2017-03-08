@@ -25,20 +25,8 @@ public class Country {
         this.climatic_Conditions = climatic_Conditions;
     }
 
-    @Override
-    public String toString() {
-        return "domain.Country{" +
-                "name='" + name + '\'' +
-                ", population=" + population +
-                ", national_Language='" + national_Language + '\'' +
-                ", continent='" + continent + '\'' +
-                ", economic_Drivers='" + economic_Drivers + '\'' +
-                ", currency='" + currency + '\'' +
-                ", exchange_Rate=" + exchange_Rate +
-                ", places_To_Visit='" + places_To_Visit + '\'' +
-                ", capital='" + capital + '\'' +
-                ", climatic_Conditions='" + climatic_Conditions + '\'' +
-                '}';
+    public Country() {
+
     }
 
     public String getName() {
@@ -119,5 +107,21 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "name='" + name + '\'' +
+                ", population=" + population +
+                ", national_Language='" + national_Language + '\'' +
+                ", continent='" + continent + '\'' +
+                ", economic_Drivers='" + economic_Drivers + '\'' +
+                ", currency='" + currency + '\'' +
+                ", exchange_Rate=" + exchange_Rate +
+                ", places_To_Visit='" + places_To_Visit + '\'' +
+                ", capital='" + capital + '\'' +
+                ", climatic_Conditions='" + climatic_Conditions + '\'' +
+                '}';
     }
 }
