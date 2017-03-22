@@ -41,9 +41,9 @@ public class CountryDaoImpl implements CountryDAO {
     }
 
     @Override
-    public Country getCountryByName(String getCountryWithName)throws SQLException {
+    public Country getCountryByName(String countryName)throws SQLException {
         for(Country country : countries){
-            if(country.getName() != null && country.getName().equals(getCountryWithName)){
+            if(country.getName() != null && country.getName().equals(countryName)){
                 return country;
             }
         }
